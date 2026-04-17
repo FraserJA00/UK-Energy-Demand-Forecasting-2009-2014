@@ -21,7 +21,7 @@ Resolution: Half-hourly demand (MW)
 
 # 1. Long-term Trends in UK Energy Demand
 
-<p align="center"> <img src="images/Demand_by_year.png" width="800"> </p>
+<p align="center"> <img src="Images/Demand_by_year.png" width="800"> </p>
 
 The full dataset (2009–2024) shows several important characteristics:
 
@@ -43,7 +43,7 @@ This context is important — the model must learn both:
 # 2. Baseline Model - Random Forest
 
 Prediction Performance (Example Day)
-<p align="center"> <img src="images/May-2023-day.png" width="700"> </p>
+<p align="center"> <img src="Images/May-2023-day.png" width="700"> </p>
 
 The Random Forest model performs reasonably well:
 
@@ -56,7 +56,7 @@ However, it tends to:
 - Slightly lag behind real peaks
 
 Feature Importance – Random Forest
-<p align="center"> <img src="images/May-2023-day-RF-feature-importance.png" width="700"> </p>
+<p align="center"> <img src="Images/May-2023-day-RF-feature-importance.png" width="700"> </p>
 
 This is where the key issue appears:
 
@@ -70,7 +70,7 @@ The model has effectively learned that "Tomorrow is proportional to today". This
 To address this, a LightGBM model was trained with the same feature set but with better handling of feature interactions and boosting.
 
 Prediction Performance (Test Week – Jan 2024)
-<p align="center"> <img src="images/Jan-LightGBM-boosted-week.png" width="800"> </p>
+<p align="center"> <img src="Images/Jan-LightGBM-boosted-week.png" width="800"> </p>
 
 The LightGBM model shows:
 
@@ -79,7 +79,7 @@ The LightGBM model shows:
 - Improved tracking of daily structure across multiple days
 
 Feature Importance – LightGBM
-<p align="center"> <img src="images/Jan-LightGBM-boosted-week-feature-importance.png" width="700"> </p>
+<p align="center"> <img src="Images/Jan-LightGBM-boosted-week-feature-importance.png" width="700"> </p>
 
 Unlike Random Forest, the model now uses a broader set of features:
 
